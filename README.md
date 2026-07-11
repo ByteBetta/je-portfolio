@@ -1,7 +1,3 @@
-# Jerrald Enriquez — QA Portfolio
-
-A clean, modern single-page portfolio for a Software QA Tester, built with React and Vite.
-
 ## Local development
 
 ```bash
