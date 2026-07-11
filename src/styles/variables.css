@@ -39,6 +39,7 @@
   --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
 
   --max-width: 1200px;
+  --page-padding-x: 2rem;
   --nav-height: 4.25rem;
   --section-padding: 4rem 1.5rem;
   --radius: 0;

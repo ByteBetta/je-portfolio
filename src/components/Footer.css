@@ -1,12 +1,10 @@
 .footer {
   border-top: 2px solid var(--color-border);
-  padding: 1rem 2rem;
+  padding: 1rem var(--page-padding-x);
   background: var(--color-bg);
 }
 
 .footer__inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,10 +17,6 @@
 }
 
 @media (max-width: 600px) {
-  .footer {
-    padding: 1rem 1.25rem;
-  }
-
   .footer__inner {
     flex-direction: column;
     align-items: flex-start;

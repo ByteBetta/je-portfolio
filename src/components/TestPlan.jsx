@@ -1,5 +1,7 @@
+import { Download } from 'lucide-react'
 import { resume } from '../data/resume'
 import SectionHeader from './SectionHeader'
+import { downloadTestPlan } from '../utils/spreadsheetExport'
 import './TestPlan.css'
 
 const priorityClass = {
@@ -22,7 +24,17 @@ export default function TestPlan() {
 
         <article className="tp-doc card-surface">
           <header className="tp-doc__header">
-            <h3 className="tp-doc__title">{plan.title}</h3>
+            <div className="tp-doc__header-top">
+              <h3 className="tp-doc__title">{plan.title}</h3>
+              <button
+                type="button"
+                className="btn btn-ghost tp-doc__download"
+                onClick={() => downloadTestPlan(plan)}
+              >
+                <Download size={16} aria-hidden="true" />
+                Download test plan
+              </button>
+            </div>
             <dl className="tp-doc__meta">
               <div>
                 <dt>Project</dt>

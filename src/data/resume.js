@@ -410,9 +410,39 @@ export const resume = {
     title: 'Test Automation',
     subtitle: 'How I use automation in QA work',
     experience:
-      'I have hands-on experience with Selenium (Java) for UI regression and data-validation tasks — including scripts that extract product prices from listing pages and cross-check them against checkout data. I’ve also worked with JUnit for API and cloud-storage regression coverage, such as S3 upload, download, versioning, and permission scenarios. Log4j is part of my workflow for structured test logging, and I’m comfortable running automation in CI/CD pipelines where it supports release confidence without replacing manual exploratory testing.',
+      'I have hands-on experience with Selenium (Java) for UI regression and data-validation tasks — including scripts that extract product prices from listing pages and cross-check them against checkout data. I’ve also worked with JUnit for API and cloud-storage regression coverage, such as S3 upload, download, versioning, and permission scenarios. Log4j is part of my workflow for structured test logging, and I use automation where it supports release confidence without replacing manual exploratory testing.',
+    stack: ['Selenium', 'Java', 'JUnit', 'Log4j'],
+    useCases: [
+      {
+        title: 'UI regression & data validation',
+        tool: 'Selenium + Java',
+        points: [
+          'Extract product prices from listing pages',
+          'Cross-check prices against checkout data',
+          'Repeatable UI regression after fixes land',
+        ],
+      },
+      {
+        title: 'API & cloud storage',
+        tool: 'JUnit',
+        points: [
+          'S3 upload, download, and versioning scenarios',
+          'Permission and access-control checks',
+          'Error handling and response validation',
+        ],
+      },
+      {
+        title: 'Structured test logging',
+        tool: 'Log4j',
+        points: [
+          'Clear logs for automation runs and failures',
+          'Faster triage when a script breaks',
+          'Consistent output across test suites',
+        ],
+      },
+    ],
     note:
-      'Note: automation repos and sample scripts are currently in progress and will be linked in Projects once uploaded to GitHub.',
+      'Automation repos and sample scripts are currently in progress and will be linked in Projects once uploaded to GitHub.',
   },
 
   projectsMeta: {

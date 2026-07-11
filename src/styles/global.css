@@ -179,6 +179,12 @@ button {
   }
 }
 
+@media (max-width: 600px) {
+  :root {
+    --page-padding-x: 1.25rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
