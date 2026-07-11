@@ -1,0 +1,64 @@
+.education {
+  background: var(--color-bg-alt);
+}
+
+.education__card {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  max-width: 36rem;
+}
+
+.education__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.education__degree {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.education__school {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.education__period {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.education__awards h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.education__awards li {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.35rem;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
+  border: 2px solid var(--color-border);
+  display: inline-block;
+  margin-right: 0.35rem;
+}

@@ -1,0 +1,123 @@
+.projects {
+  background: var(--color-bg-alt);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.project-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+}
+
+.project-card__num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  opacity: 0.08;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.project-card__title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+  padding-right: 2.5rem;
+}
+
+.project-card__desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-card__tags li {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.25rem 0.55rem;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-hover);
+  border: 2px solid var(--color-border);
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-border);
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.75rem;
+  background: var(--color-text);
+  color: #ffffff;
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card__link:hover,
+.project-card__link:focus-visible {
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow);
+}
+
+.project-card__link--live {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+.project-card__link--live:hover,
+.project-card__link--live:focus-visible {
+  background: var(--color-accent-hover);
+  color: #ffffff;
+}
+
+.project-card__private {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-dim);
+  padding: 0.45rem 0;
+}
+
+@media (max-width: 768px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+}
