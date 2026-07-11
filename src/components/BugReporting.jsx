@@ -3,7 +3,6 @@ import { AlignLeft, Calendar, Download, Flag, Paperclip } from 'lucide-react'
 import { resume } from '../data/resume'
 import SectionHeader from './SectionHeader'
 import BugModal from './BugModal'
-import { downloadBugList } from '../utils/spreadsheetExport'
 import './BugReporting.css'
 
 const priorityFlag = {
@@ -40,14 +39,10 @@ export default function BugReporting() {
             <span className="bug-board__view">Board</span>
             <div className="bug-board__toolbar-actions">
               <span className="bug-board__hint">Click a card to open the report</span>
-              <button
-                type="button"
-                className="btn btn-ghost bug-board__download"
-                onClick={() => downloadBugList(resume.bugReportSamples)}
-              >
+              <a href="#" className="btn btn-ghost bug-board__download">
                 <Download size={16} aria-hidden="true" />
                 Download bug list
-              </button>
+              </a>
             </div>
           </div>
 
