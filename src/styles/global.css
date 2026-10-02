@@ -9,6 +9,7 @@
 }
 
 html {
+  font-size: 112.5%; /* handwriting fonts read small */
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 1rem);
 }
@@ -19,8 +20,33 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  border: 2px solid var(--color-border);
   min-height: 100vh;
+  /* Notebook dot-grid paper */
+  background-image: radial-gradient(var(--color-grid) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* Wobbly hand-drawn corners on every bordered box; :where() keeps specificity 0
+   so any component radius (e.g. 50% dots) still wins. */
+:where([class]) {
+  border-radius: var(--radius);
+}
+
+:where([class]:nth-child(even)) {
+  border-radius: var(--radius-alt);
+}
+
+/* Full-width structural bands stay straight */
+.header,
+.header__links,
+.section,
+.hero,
+.footer,
+.bug-board__column,
+.bug-board__header,
+table,
+table * {
+  border-radius: 0;
 }
 
 #root {
@@ -34,7 +60,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px dashed var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -56,7 +82,7 @@ button {
 
 .section {
   padding: var(--section-padding);
-  border-top: 2px solid var(--color-border);
+  border-top: 2px dashed var(--color-border);
 }
 
 .section-inner {
@@ -82,10 +108,12 @@ button {
 }
 
 .section-header__square {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: var(--color-accent);
   border: 2px solid var(--color-border);
+  border-radius: 50% 45% 55% 40%;
+  rotate: -12deg;
   flex-shrink: 0;
 }
 
@@ -94,9 +122,15 @@ button {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
   margin-bottom: 0.75rem;
+  width: fit-content;
+  padding: 0 0.3em;
+  rotate: -1deg;
+  /* Highlighter swipe */
+  background: linear-gradient(100deg, transparent 2%, var(--color-highlight) 4%, var(--color-highlight) 96%, transparent 98%)
+    0 72% / 100% 45% no-repeat;
 }
 
 .section-subtitle {
@@ -119,6 +153,19 @@ button {
   box-shadow: var(--shadow-lg);
 }
 
+/* Small cards sit slightly askew like sticky notes */
+:is(.about__stat, .contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):nth-child(odd) {
+  rotate: -0.8deg;
+}
+
+:is(.about__stat, .contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):nth-child(even) {
+  rotate: 0.7deg;
+}
+
+:is(.about__stat, .contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):hover {
+  rotate: 0deg;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -131,6 +178,11 @@ button {
   letter-spacing: 0.04em;
   border: 2px solid var(--color-border);
   transition: all var(--transition);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  rotate: -1.5deg;
 }
 
 .btn-primary {
@@ -202,5 +254,6 @@ button {
   .btn-primary:hover,
   .btn-ghost:hover {
     transform: none;
+    rotate: none;
   }
 }
