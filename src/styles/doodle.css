@@ -1,0 +1,166 @@
+/* Doodle sketch layer — loaded after component CSS so it wins ties.
+   Strokes only: no fills, no shadows, fewer boxes. */
+
+@font-face {
+  font-family: 'Stay With Me';
+  src: url('../assets/fonts/StayWithMe.otf') format('opentype');
+  font-display: swap;
+}
+
+:root {
+  --shadow: none;
+  --shadow-sm: none;
+  --shadow-lg: none;
+
+  /* SVG strokes (data URIs can't read CSS vars, so ink/accent colors are inlined) */
+  --doodle-wavy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5' fill='none' stroke='%232b2a28' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --doodle-wavy-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 5 Q10 1 20 5 T40 5' fill='none' stroke='%23a8a29e' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --doodle-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%232b2a28' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'%3E%3Cpath d='M3 9 C 50 3, 120 12, 197 5' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M14 12 C 70 7, 140 11, 186 9' vector-effect='non-scaling-stroke'/%3E%3C/g%3E%3C/svg%3E");
+  --doodle-swoosh-accent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%234f46e5' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M3 9 C 50 3, 120 12, 197 5' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M14 12 C 70 7, 140 11, 186 9' vector-effect='non-scaling-stroke'/%3E%3C/g%3E%3C/svg%3E");
+  --doodle-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 36' preserveAspectRatio='none'%3E%3Cpath d='M70 3 C 134 2, 134 33, 60 33 C -12 34, -14 4, 78 7' fill='none' stroke='%232b2a28' stroke-width='2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --doodle-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20'%3E%3Cpath d='M3 11 C 5 12, 7 15, 8 17 C 11 10, 15 5, 20 2' fill='none' stroke='%23059669' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --doodle-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20'%3E%3Cpath d='M4 4 C 9 8, 14 13, 18 17 M18 3 C 13 8, 8 12, 3 17' fill='none' stroke='%23dc2626' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --doodle-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 18'%3E%3Cpath d='M2 11 C 8 4, 14 15, 23 8 M17 4 L23 8 L18 14' fill='none' stroke='%234f46e5' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* ── Cards: transparent, outline only ── */
+
+.card-surface,
+.card-surface:hover {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Small cards drop the box; a scribbled line separates them instead */
+.about__stat,
+.skills__card,
+.domains__card,
+.deliverables__tile,
+.workflow__card,
+.contact__card,
+.education__card,
+.tp-risk {
+  border: none;
+  background: var(--doodle-wavy-light) left bottom / 40px 10px repeat-x;
+  padding-bottom: 1.5rem;
+}
+
+/* Domain cards already get a wavy line under their header */
+.domains__card {
+  background: none;
+}
+
+.deliverables__tile::before {
+  display: none;
+}
+
+.deliverables__tile--6,
+.deliverables__tile--6 h4,
+.deliverables__tile--6 p,
+.deliverables__tile--6 .deliverables__num {
+  color: var(--color-text);
+}
+
+/* About profile: no solid fill */
+.about__profile,
+.about__profile:hover {
+  background: transparent;
+  color: var(--color-text);
+}
+
+.about__profile * {
+  border-color: var(--color-border) !important;
+}
+
+.about__traits li {
+  background: transparent;
+  border-style: dashed;
+}
+
+/* ── Labels: hand-circled instead of filled ── */
+
+.qa-block-label,
+.tp-block h4,
+.bug-board__view,
+.skills__category,
+.in-progress__badge,
+.hero__badge {
+  background: var(--doodle-circle) center / 100% 100% no-repeat;
+  color: var(--color-text);
+  border: none;
+  box-shadow: none;
+  padding: 0.6rem 1.5rem;
+}
+
+.domains__header {
+  background: var(--doodle-wavy) left bottom / 40px 10px repeat-x;
+  color: var(--color-text);
+  border: none;
+  padding-bottom: 0.9rem;
+}
+
+.workflow__num {
+  background: transparent;
+  color: var(--color-accent);
+  border-radius: 50% 45% 55% 40%;
+}
+
+/* ── Headings: marker swoosh underline ── */
+
+.section-header__title {
+  rotate: none;
+  padding: 0 0 0.35em;
+  background: var(--doodle-swoosh) left bottom / 100% 0.35em no-repeat;
+}
+
+.section-header__square,
+.hero__eyebrow-square {
+  width: 26px;
+  height: 18px;
+  border: none;
+  border-radius: 0;
+  rotate: none;
+  background: var(--doodle-arrow) center / contain no-repeat;
+}
+
+.hero__highlight {
+  background: var(--doodle-swoosh-accent) left bottom / 100% 0.2em no-repeat;
+  color: var(--color-accent);
+  border: none;
+  padding: 0 0.1em 0.2em 0;
+  width: fit-content;
+}
+
+/* ── Bullets: drawn checks and crosses ── */
+
+.tp-block li::before,
+.domains__card li::before,
+.auto-panel__case li::before {
+  content: '';
+  top: 0.25em;
+  width: 0.9em;
+  height: 0.9em;
+  background: var(--doodle-check) center / contain no-repeat;
+}
+
+.tp-block--out li::before {
+  background-image: var(--doodle-cross);
+}
+
+.tp-block li,
+.domains__card li,
+.auto-panel__case li {
+  padding-left: 1.4em;
+}
+
+.domains__card li {
+  border-bottom: none;
+}
+
+/* Test plan: outlines only, no pastel fills */
+.tp-doc__header,
+.tp-block--in,
+.tp-block--out,
+.tp-block--exit {
+  background: transparent;
+}
