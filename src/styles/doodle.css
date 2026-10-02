@@ -20,6 +20,7 @@
   --doodle-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 36' preserveAspectRatio='none'%3E%3Cpath d='M70 3 C 134 2, 134 33, 60 33 C -12 34, -14 4, 78 7' fill='none' stroke='%232b2a28' stroke-width='2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
   --doodle-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20'%3E%3Cpath d='M3 11 C 5 12, 7 15, 8 17 C 11 10, 15 5, 20 2' fill='none' stroke='%23059669' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   --doodle-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 20'%3E%3Cpath d='M4 4 C 9 8, 14 13, 18 17 M18 3 C 13 8, 8 12, 3 17' fill='none' stroke='%23dc2626' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --doodle-checkbox: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Cg fill='none' stroke='%232b2a28' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 8 C 5 4, 7 3.5, 12 3.5 L 19 4 C 23.5 4.5, 24.5 6, 24.5 10 L 24 19.5 C 23.5 24, 22 24.5, 17.5 24.5 L 9.5 24 C 5.5 23.5, 4.5 22, 4.5 17.5 Z' stroke-width='2'/%3E%3Cpath d='M9 14 C 10.5 15.3, 11.8 17.2, 12.6 18.8 C 14.8 14.2, 17.5 10.8, 20.5 8.5' stroke-width='2.6'/%3E%3C/g%3E%3C/svg%3E");
   --doodle-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 18'%3E%3Cpath d='M2 11 C 8 4, 14 15, 23 8 M17 4 L23 8 L18 14' fill='none' stroke='%234f46e5' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
@@ -163,4 +164,37 @@
 .tp-block--out,
 .tp-block--exit {
   background: transparent;
+}
+
+/* Stay With Me has a tiny x-height (0.35em); scale body text to a normal one */
+p,
+li,
+dd,
+td {
+  font-size-adjust: ex-height 0.45;
+}
+
+.header li,
+.hero__highlight {
+  font-size-adjust: none;
+}
+
+/* Test strategy: hand-drawn checkbox checklist */
+.tp-strategy li {
+  display: block;
+  position: relative;
+  padding: 0.45rem 0 0.45rem 2.8em;
+  background: none;
+  border: none;
+  color: var(--color-text);
+}
+
+.tp-strategy li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 2.1em;
+  height: 2.1em;
+  background: var(--doodle-checkbox) center / contain no-repeat;
 }
