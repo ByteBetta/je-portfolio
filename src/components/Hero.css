@@ -6,32 +6,7 @@
   padding: calc(var(--nav-height) + 1.5rem) var(--page-padding-x) 1.25rem;
 }
 
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
-  padding: 0.5rem 0.85rem;
-  background: var(--color-accent);
-  color: #ffffff;
-  border: 2px solid var(--color-border);
-  box-shadow: var(--shadow);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.25rem;
-}
 
-.hero__badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-success);
-  border: 1px solid var(--color-border);
-  flex-shrink: 0;
-}
 
 .hero__main {
   display: flex;
@@ -114,14 +89,59 @@
     padding: calc(var(--nav-height) + 1rem) var(--page-padding-x) 1rem;
   }
 
-  .hero__badge {
-    font-size: 0.6rem;
-    padding: 0.45rem 0.65rem;
-  }
 
   .hero__bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
+  }
+}
+
+/* ── Scribble motion layer ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__main,
+.hero__bottom {
+  position: relative;
+  z-index: 1;
+}
+
+/* Centered column, a bit wider than the other sections */
+.hero__stage,
+.hero__bottom {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+.hero__stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero__stage .hero__main {
+  flex: 0 1 auto;
+}
+
+/* Art fills the space beside the text and scales with the viewport */
+.hero__doodles {
+  flex: 1;
+  min-width: 0;
+  max-height: 82vh;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .hero__doodles {
+    position: absolute;
+    right: var(--page-padding-x);
+    bottom: 3rem;
+    width: min(70vw, 340px);
+    opacity: 0.35;
   }
 }

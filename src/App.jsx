@@ -11,10 +11,12 @@ import Education from './components/Education'
 import Hobbies from './components/Hobbies'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { BoilFilter } from './components/doodle'
 
 export default function App() {
   return (
     <>
+      <BoilFilter />
       <Navbar />
       <Hero />
       <main>

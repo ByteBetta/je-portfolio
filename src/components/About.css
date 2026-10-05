@@ -1,159 +1,151 @@
-.about__grid {
+/* Sketchbook: taped polaroid + sticky notes on the left, story and resume facts on the right */
+
+/* Wider than the default 1200px column so big screens aren't mostly margin */
+.about .section-inner {
+  max-width: 1600px;
+}
+
+.about__layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
 }
 
-.about__profile {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  background: var(--color-accent);
-  color: #ffffff;
-}
+/* ── Left: polaroid, pointer, stickies ── */
 
-.about__profile:hover {
-  background: var(--color-accent-hover);
-}
-
-.about__avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
-  background: var(--color-text);
-  color: var(--color-bg);
-  font-family: var(--font-display);
-  font-size: 1.1rem;
+.about__polaroid {
+  background: var(--color-bg-card);
   border: 2px solid var(--color-border);
-  margin-bottom: 1.25rem;
+  padding: 0.9rem 0.9rem 0.6rem;
+  rotate: -3deg;
+  position: relative;
+  transition: rotate var(--transition);
 }
 
-.about__name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  margin-bottom: 0.35rem;
-}
+.about__polaroid:hover { rotate: 0deg; }
 
-.about__role {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
-  margin-bottom: 0.75rem;
-}
-
-.about__tagline {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.55;
+/* Tape strip */
+.about__polaroid::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 90px;
+  height: 26px;
+  translate: -50% 0;
+  rotate: 4deg;
+  background: var(--color-accent-soft);
   opacity: 0.85;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
 }
 
-.about__traits {
+.about__face {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--color-bg-alt);
+  padding: 1rem;
+  border-radius: 0;
+}
+
+.about__polaroid figcaption {
+  font-size: 1.3rem;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.about__pointer {
+  display: block;
+  width: 170px;
+  margin: 0.25rem 0 0 auto;
+}
+
+.about__stickies {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: auto;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
-.about__traits li {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.4rem 0.6rem;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.35);
+.about__stickies li {
+  background: var(--color-highlight);
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  box-shadow: 2px 4px 0 rgba(43, 42, 40, 0.12);
+  border-radius: 2px;
+  rotate: -3deg;
 }
 
-.about__bio {
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.about__stickies li:nth-child(2) { rotate: 2deg; background: var(--color-accent-soft); }
+.about__stickies li:nth-child(3) { rotate: -1deg; background: var(--color-status-resolved); }
+
+/* ── Right: lead, bio, facts ── */
+
+.about__main {
+  position: relative;
+  padding-top: 1rem;
+}
+
+.about__corner {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  width: 110px;
 }
 
 .about__lead {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  font-weight: 400;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 2px solid var(--color-border);
+  max-width: 88%;
+  margin-bottom: 1.5rem;
 }
 
 .about__text {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   color: var(--color-text-muted);
   line-height: 1.85;
+  max-width: 62rem;
+  margin-bottom: 3rem;
 }
 
-.about__stats {
+.about__facts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-top: 2rem;
+  background: var(--doodle-wavy-light) left top / 40px 10px repeat-x;
 }
 
-.about__stat {
-  padding: 1.25rem;
-  text-align: center;
-}
-
-.about__stat-value {
+.about__icon {
   display: block;
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: var(--color-accent);
+  width: 44px;
+  margin-bottom: 0.6rem;
+}
+
+.about__value {
+  display: block;
+  font-size: 1.7rem;
   line-height: 1.1;
-  margin-bottom: 0.35rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
 }
 
-.about__stat-label {
+.about__label {
   display: block;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  line-height: 1.45;
   color: var(--color-text-muted);
-  line-height: 1.35;
 }
 
 @media (max-width: 900px) {
-  .about__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about__stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .about__layout { grid-template-columns: 1fr; }
+  .about__side { max-width: 320px; }
+  .about__lead { max-width: none; }
 }
 
 @media (max-width: 480px) {
-  .about__stats {
-    grid-template-columns: 1fr;
-  }
-
-  .about__bio {
-    padding: 1.5rem;
-  }
+  .about__facts { grid-template-columns: 1fr; gap: 1.5rem; }
 }

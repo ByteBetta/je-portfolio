@@ -1,4 +1,5 @@
 import { resume } from '../data/resume'
+import HeroDoodles from './HeroDoodles'
 import './Hero.css'
 
 export default function Hero() {
@@ -6,26 +7,24 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <div className="hero__main">
-        <div className="hero__badge">
-          <span className="hero__badge-dot" aria-hidden="true" />
-          {hero.status}
+      <div className="hero__stage">
+        <div className="hero__main">
+          <p className="hero__eyebrow">
+            <span className="hero__eyebrow-square" aria-hidden="true" />
+            {hero.eyebrow}
+          </p>
+
+          <h1 className="hero__headline">
+            {hero.headline.map((line) => (
+              <span key={line} className="hero__headline-line">
+                {line}
+              </span>
+            ))}
+          </h1>
+
+          <p className="hero__highlight">{hero.highlight}</p>
         </div>
-
-        <p className="hero__eyebrow">
-          <span className="hero__eyebrow-square" aria-hidden="true" />
-          {hero.eyebrow}
-        </p>
-
-        <h1 className="hero__headline">
-          {hero.headline.map((line) => (
-            <span key={line} className="hero__headline-line">
-              {line}
-            </span>
-          ))}
-        </h1>
-
-        <p className="hero__highlight">{hero.highlight}</p>
+        <HeroDoodles />
       </div>
 
       <footer className="hero__bottom">

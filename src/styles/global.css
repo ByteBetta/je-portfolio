@@ -154,15 +154,15 @@ button {
 }
 
 /* Small cards sit slightly askew like sticky notes */
-:is(.about__stat, .contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):nth-child(odd) {
+:is(.contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):nth-child(odd) {
   rotate: -0.8deg;
 }
 
-:is(.about__stat, .contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):nth-child(even) {
+:is(.contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):nth-child(even) {
   rotate: 0.7deg;
 }
 
-:is(.about__stat, .contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):hover {
+:is(.contact__card, .skills__card, .domains__card, .deliverables__tile, .workflow__card, .tp-risk, .education__card):hover {
   rotate: 0deg;
 }
 

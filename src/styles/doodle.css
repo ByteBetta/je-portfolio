@@ -33,7 +33,6 @@
 }
 
 /* Small cards drop the box; a scribbled line separates them instead */
-.about__stat,
 .skills__card,
 .domains__card,
 .deliverables__tile,
@@ -62,30 +61,13 @@
   color: var(--color-text);
 }
 
-/* About profile: no solid fill */
-.about__profile,
-.about__profile:hover {
-  background: transparent;
-  color: var(--color-text);
-}
-
-.about__profile * {
-  border-color: var(--color-border) !important;
-}
-
-.about__traits li {
-  background: transparent;
-  border-style: dashed;
-}
-
 /* ── Labels: hand-circled instead of filled ── */
 
 .qa-block-label,
 .tp-block h4,
 .bug-board__view,
 .skills__category,
-.in-progress__badge,
-.hero__badge {
+.in-progress__badge {
   background: var(--doodle-circle) center / 100% 100% no-repeat;
   color: var(--color-text);
   border: none;
@@ -197,4 +179,99 @@ td {
   width: 2.1em;
   height: 2.1em;
   background: var(--doodle-checkbox) center / contain no-repeat;
+}
+
+/* ── Animated SVG doodles (see components/doodle.jsx) ── */
+
+.doodle-ink {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.doodle-thick { stroke-width: 5; }
+.doodle-muted { stroke: var(--color-text-dim); }
+.doodle-danger { stroke: var(--color-danger); }
+.doodle-success { stroke: var(--color-success); }
+.doodle-fill { fill: var(--color-bg); }
+.doodle-accent { stroke: var(--color-accent); }
+
+.doodle-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: doodle-draw 1s var(--d, 0s) ease-out forwards;
+}
+
+.doodle-twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: doodle-twinkle 2.4s calc(4s + var(--t)) ease-in-out infinite;
+}
+
+.doodle-click {
+  transform-box: fill-box;
+  transform-origin: top left;
+  animation: doodle-click 1.6s 3s ease-in-out infinite;
+}
+
+.doodle-note {
+  stroke: none;
+  font-family: var(--font-display);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: doodle-note 0.5s var(--d) cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes doodle-draw { to { stroke-dashoffset: 0; } }
+@keyframes doodle-twinkle { 50% { transform: scale(0.7) rotate(20deg); } }
+@keyframes doodle-click { 40%, 60% { transform: scale(0.85); } }
+@keyframes doodle-note {
+  from { opacity: 0; transform: rotate(-12deg) scale(0.6); }
+  to { opacity: 1; transform: rotate(-6deg) scale(1); }
+}
+
+.doodle-ink { overflow: visible; }
+
+/* HTML elements that bounce in (stickies, chips, labels) */
+.doodle-pop {
+  opacity: 0;
+  animation: doodle-pop 0.55s var(--d, 0s) cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Highlighter swipe behind a phrase */
+.doodle-mark {
+  color: inherit;
+  background: linear-gradient(100deg, transparent 2%, var(--color-highlight) 4% 96%, transparent 98%) no-repeat 0 85% / 0% 55%;
+  animation: doodle-mark 0.8s var(--d, 0s) ease-out forwards;
+}
+
+/* Doodled portrait blinks now and then */
+.face-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: face-blink 5s 3s infinite;
+}
+
+@keyframes doodle-pop {
+  from { opacity: 0; scale: 0.6; }
+  to { opacity: 1; scale: 1; }
+}
+@keyframes doodle-mark { to { background-size: 100% 55%; } }
+@keyframes face-blink { 0%, 94%, 100% { scale: 1 1; } 97% { scale: 1 0.1; } }
+
+/* Sections hold their animations until scrolled into view (useInView) */
+.doodle-wait:not(.is-seen),
+.doodle-wait:not(.is-seen) * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doodle-ink g { filter: none; }
+  .doodle-ink * { animation: none !important; }
+  .doodle-draw { stroke-dashoffset: 0; }
+  .doodle-note { opacity: 1; transform: rotate(-6deg); }
+  .doodle-pop, .doodle-mark { animation: none; opacity: 1; background-size: 100% 55%; }
 }

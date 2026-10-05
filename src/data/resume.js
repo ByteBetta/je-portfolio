@@ -5,9 +5,8 @@ export const resume = {
 
   hero: {
     eyebrow: 'SOFTWARE QA TESTER • MANUAL & AUTOMATION',
-    headline: ['YOU BUILD', 'FEATURES.'],
-    highlight: 'I TEST THEM.',
-    status: 'AVAILABLE FOR QA ROLES',
+    headline: ['QUALITY', 'STARTS BEFORE'],
+    highlight: 'YOU SHIP.',
     siteUrl: 'jerraldenriquez.dev',
     footerMeta: 'REMOTE • PH',
   },
@@ -80,10 +79,9 @@ export const resume = {
   },
 
   highlights: [
-    { value: '20+', label: 'WordPress sites pre-release QA' },
-    { value: 'Web + API', label: 'Manual & automated test coverage' },
-    { value: 'Cross-browser', label: 'Desktop & mobile device testing' },
-    { value: '3', label: 'Bug-tracking tools (Jira, Qase, ClickUp)' },
+    { icon: 'calendar', value: '2+ years', label: 'Hands-on QA across web, API & cloud' },
+    { icon: 'browser', value: '20+ sites', label: "WordPress sites QA'd before launch" },
+    { icon: 'cloud', value: 'S3 API', label: 'Automated tests in CI/CD (Java · JUnit)' },
   ],
 
   qaProcess: [
